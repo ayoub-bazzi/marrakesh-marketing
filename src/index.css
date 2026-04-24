@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #002219;
+    color: #DFFFBF;
+    font-family: 'Inter', 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Liquid fill button */
+.btn-liquid {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.btn-liquid::before {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #DFFFBF;
+    transition: bottom 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.btn-liquid:hover::before {
+    bottom: 0;
+}
+
+.btn-liquid:hover {
+    color: #002219;
+}
