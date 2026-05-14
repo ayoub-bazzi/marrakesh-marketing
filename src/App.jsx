@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
 /* ─── LAUNCH DATE — change this ─── */
-const LAUNCH = new Date("2026-05-17T23:59:59");
+const LAUNCH = new Date("2026-06-06T23:59:59");
 
 /* ─── Floating background icons as SVG paths ─── */
 const BG_ICONS = [
@@ -97,12 +97,12 @@ function TimeUnit({ value, label }) {
                 initial={{ rotateX: -90, opacity: 0 }}
                 animate={{ rotateX: 0, opacity: 1 }}
                 transition={{ duration: 0.35 }}
-                className="text-5xl md:text-7xl font-black text-lime tabular-nums leading-none"
+                className="text-4xl sm:text-5xl md:text-7xl font-black text-lime tabular-nums leading-none"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
             >
                 {String(value).padStart(2, "0")}
             </motion.span>
-            <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-lime/50 mt-2">
+            <span className="text-[9px] md:text-xs tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] uppercase text-lime/50 mt-2">
                 {label}
             </span>
         </motion.div>
@@ -275,7 +275,7 @@ export default function App() {
                 {/* ── Countdown ── */}
                 <motion.div
                     variants={item}
-                    className="flex gap-8 md:gap-14 mb-14"
+                    className="flex gap-3 sm:gap-6 md:gap-14 mb-14 w-full justify-center"
                 >
                     {[
                         { value: days, label: "Days" },
@@ -283,10 +283,10 @@ export default function App() {
                         { value: minutes, label: "Minutes" },
                         { value: seconds, label: "Seconds" },
                     ].map(({ value, label }, i) => (
-                        <div key={label} className="flex items-center gap-8 md:gap-14">
+                        <div key={label} className="flex items-center gap-3 sm:gap-6 md:gap-14">
                             <TimeUnit value={value} label={label} />
                             {i < 3 && (
-                                <span className="text-lime/20 text-4xl md:text-5xl font-thin -ml-4 md:-ml-10 select-none">
+                                <span className="text-lime/20 text-3xl sm:text-4xl md:text-5xl font-thin -ml-1 sm:-ml-2 md:-ml-6 select-none">
                                     :
                                 </span>
                             )}
